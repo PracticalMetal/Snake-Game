@@ -1,6 +1,5 @@
 from turtle import Screen, Turtle
-import turtle
-import time
+import math
 
 screen=Screen()
 
@@ -10,6 +9,7 @@ class Snake:
         self.segments=[]
         self.create_snake()
         self.head=self.segments[0]
+        self.tail=self.segments[-1]
 
     def create_snake(self):
         initial_pos=0
@@ -63,3 +63,17 @@ class Snake:
             self.segments[0].left(90) 
         elif self.segments[0].heading()==0:
             self.segments[0].right(90)  
+
+    def add_snake(self):       
+        new_turtle=Turtle()        
+        new_turtle.penup()
+        new_turtle.shape("square")
+        new_turtle.color("white")        
+        new_turtle.showturtle()
+        self.segments.append(new_turtle)    
+
+    def check_collision(self):
+        for i in range(1,len(self.segments),1):
+            if (self.head.xcor()==self.segments[i].xcor() and self.head.ycor()==self.segments[i].ycor()) or ((self.head.xcor()>300 or self.head.xcor()<-300) or self.head.ycor()>300 or self.head.ycor()<-300):
+                return False
+        return True

@@ -6,7 +6,7 @@ import time
 
 # creating a screen object and changing the background colour
 screen=Screen()
-screen.setup(height=600, width=600)
+screen.setup(height=630, width=630)
 screen.bgcolor("black")
 screen.tracer(0)
 screen.title("Snake Game")
@@ -26,14 +26,20 @@ game_is_on=True
 
 
 while game_is_on:
+    snake.move()
+    game_is_on=snake.check_collision()
+    if game_is_on==False:
+        break
     screen.update()
     time.sleep(0.1)
-    snake.move()
+    
 
 # checking for collision of the snake and the food
     if snake.head.distance(food) < 10:
         food.refresh()
         score.successful_score()
+        snake.add_snake()
+        
 
 
 
