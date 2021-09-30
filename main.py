@@ -41,7 +41,7 @@ while game_is_on:
         snake.add_snake()
         
 
-
+# TODO: fix bug where pressing the up+left key or right+down key makes the snake move backwards 
 
     
 
