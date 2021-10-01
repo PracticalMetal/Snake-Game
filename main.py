@@ -29,6 +29,7 @@ while game_is_on:
     snake.move()
     game_is_on=snake.check_collision()
     if game_is_on==False:
+        score.game_over()
         break
     screen.update()
     time.sleep(0.1)

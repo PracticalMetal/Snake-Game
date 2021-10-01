@@ -14,3 +14,7 @@ class Score(Turtle):
         self.score+=1
         self.clear()
         self.write(arg=f"My Score: {self.score}", align="center", font=("Arial", 12, "bold"))
+
+    def game_over(self):
+        self.home()
+        self.write(arg="Game Over", align="center", font=("Arial", 18, "bold"))
